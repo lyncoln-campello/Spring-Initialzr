@@ -28,6 +28,9 @@ public class Postagem {
 	@Size(min = 10, max = 1000, message = "O atributo título deve conter no mínimo 10 e no máximo 1000 caracteres")
 	private String texto;
 	
+	@UpdateTimestamp
+	private LocalDateTime data;
+	
 	public Long getId() {
 		return id;
 	}
@@ -60,6 +63,5 @@ public class Postagem {
 		this.data = data;
 	}
 
-	@UpdateTimestamp
-	private LocalDateTime data;
+	
 }
