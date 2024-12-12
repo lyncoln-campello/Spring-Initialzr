@@ -19,6 +19,18 @@ import jakarta.validation.constraints.Size;
 @Table(name = "tb_usuario")
 public class Usuario {
 
+	public Usuario(Long id, String nome, String usuario, String senha, String foto) {
+		this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.foto = foto;
+	}
+
+	public Usuario() {
+
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -36,7 +48,7 @@ public class Usuario {
 
 	@Size(max = 5000, message = "O atributo foto deve ter no máximo 5000 caracteres")
 	private String foto;
-	
+
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
