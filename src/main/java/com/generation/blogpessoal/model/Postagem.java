@@ -38,6 +38,10 @@ public class Postagem {
 	@JsonIgnoreProperties("Postagem")
 	private TemaModel tema;
 
+	@ManyToOne
+	@JsonIgnoreProperties("Postagem")
+	private Usuario usuario;
+	
 	public Long getId() {
 		return id;
 	}
@@ -66,9 +70,7 @@ public class Postagem {
 		return data;
 	}
 
-	public void setData(LocalDateTime data) {
-		this.data = data;
-	}
+	
 
 	public TemaModel getTema() {
 		return tema;
