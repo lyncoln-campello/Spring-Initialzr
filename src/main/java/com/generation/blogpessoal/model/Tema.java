@@ -16,7 +16,7 @@ import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "tb_temas")
-public class TemaModel {
+public class Tema {
 	
 	
 	@Id
@@ -25,9 +25,9 @@ public class TemaModel {
 	
 	@Size(min = 5, max = 120, message = "O atributo descricão deve conter no mínimo ")
 	private String descricao;
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tema", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties
+	@JsonIgnoreProperties("tema")
 	private List<Postagem> postagem;
 
 	public Long getId() {
